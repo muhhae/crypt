@@ -24,4 +24,18 @@ func main() {
 
 	decrypted, _ = crypt.SimpleSymmetricDecrypt(encrypted, keyFromFunc)
 	fmt.Printf("decrypted with keyFromFunc : %s\n\n", decrypted)
+
+	fmt.Println("--- Using Shift Encryption ---")
+
+	encrypted, _ = crypt.SimpleShiftEncrypt(secret, key)
+	fmt.Printf("Encrypted  %s\n", encrypted)
+
+	decrypted, _ = crypt.SimpleShiftDecrypt(encrypted, key)
+	fmt.Printf("Decrypted  %s\n\n", decrypted)
+
+	keyFromFunc, _ = crypt.SimpleShiftDecrypt(encrypted, secret)
+	fmt.Printf("Key  %s\n\n", keyFromFunc)
+
+	decrypted, _ = crypt.SimpleShiftDecrypt(encrypted, keyFromFunc)
+	fmt.Printf("decrypted with keyFromFunc  %s\n\n", decrypted)
 }
